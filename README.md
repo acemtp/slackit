@@ -4,7 +4,7 @@ A little server that enables public access to a Slack server. Like Freenode, but
 
 ## install
 
-git clone git@github.com:acemtp/slackit.git
-meteor deploy **yourmeteordomain**
+    git clone git@github.com:acemtp/slackit.git
+    meteor deploy **yourmeteordomain**
 
-then go to http://**yourmeteordomain**.meteor.com and follow the instruction.
+then go to `http://**yourmeteordomain**.meteor.com` and follow the instruction.
