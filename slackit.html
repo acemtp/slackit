@@ -1,0 +1,40 @@
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,user-scalable=no">
+  <link rel="shortcut icon" href="https://slack.global.ssl.fastly.net/272a/img/icons/favicon-32.png">
+</head>
+<body>
+  <div class="splash">
+    {{> page}}
+  </div>
+</body>
+
+<template name="page">
+  <div class="logos"><div class="logo slack"></div></div>
+  {{#if info}}
+    {{> login}}
+  {{else}}
+    {{> setup}}
+  {{/if}}
+</template>
+
+<template name="setup">
+  <p>Setup your slackit.</p>
+  <p>Go to <a href="https://api.slack.com/web" target="_blank">api.slack.com/web</a>.</p>
+  <form>
+    <p>Your Slack's subdomain (**this**.slack.com)</p>
+    <input type="text" id="org" placeholder="**this**" autofocus=true class="form-item">
+    <p>Enter your Slack Token.</p>
+    <input type="text" id="token" placeholder="xoxp-12346663478-12666678822-15543334444-3b44467879" class="form-item">
+    <p>Slackit's welcome sentence (optional)</p>
+    <input type="text" id="sentence" placeholder="Don't forget to say hello" autofocus=true class="form-item">
+    <button type="submit">Setup my slackit</button>
+  </form>
+</template>
+
+<template name="login">
+  <p>Join <b>{{info.org}}</b> on Slack.</p>
+  <p>{{info.sentence}}</p>
+  <p class="status"><b class="active">{{info.userOnlineCount}}</b> users online now of <b class="total">{{info.userCount}}</b> registered.</p>
+  <form><input type="email" id="email" placeholder="you@yourdomain.com" autofocus=true class="form-item"><button id="button">Get my Invite</button></form>
+  <p class="signin">or <a href="https://{{info.org}}.slack.com" target="_top">sign in</a>.</p>
+</template>
